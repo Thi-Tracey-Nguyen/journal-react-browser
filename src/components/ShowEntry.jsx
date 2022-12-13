@@ -1,18 +1,14 @@
 import React from 'react'
 import { useParams } from 'react-router-dom'
 
-const ShowEntry = ({ entries }) => {
+const ShowEntry = ({ entry }) => {
 
-  const {id} = useParams()
-
-  return entries[id] ? (
+  return (
     <>
-        <h5>{entries[id].content}</h5>
-        <p>Posted in {entries[id].category}</p>
+        <h5>{entry.content}</h5>
+        <p>Posted in {entry.category}</p>
     </>
-  ) : (
-    <h4>Entry not found</h4>
-  )
+  ) 
 }
 
 export default ShowEntry

@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useParams } from 'react-router-dom'
 
-const NewEntry = ({ setEntries, entries }) => {
+const NewEntry = ({ addEntry }) => {
 
   const { category } = useParams()
   const [entry, setEntry] = useState('')
@@ -10,14 +10,18 @@ const NewEntry = ({ setEntries, entries }) => {
 
   function handleSubmit(event) {
     event.preventDefault()
-    alert('Entry added successfully')
-    // Add a new entry
-    const newEntry = {
-      category: category,
-      content: entry
-    }
-    setEntries([...entries, newEntry])
-    setEntry('')
+    addEntry(category, entry)
+    // alert('Entry added successfully')
+    // const id = entries.length
+
+    // // Add a new entry
+    // const newEntry = {
+    //   category: category,
+    //   content: entry
+    // }
+    // setEntries([...entries, newEntry])
+    // setEntry('')
+    // nav(`/entry/${id}`)
   }
 
   return (
