@@ -31,7 +31,7 @@ const NewEntry = ({ addEntry }) => {
       <div>
         <textarea className='form-control' rows='10' value={entry} onChange={handleChange}></textarea>
       </div>
-      <button className='btn btn-primary mt-2' type='submit' >Create entry</button>
+      <button className='btn btn-primary mt-2' type='submit'>Create entry</button>
     </form>
     </>
   )

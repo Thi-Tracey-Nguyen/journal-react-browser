@@ -7,7 +7,7 @@ const Home = ({ entries }) => {
       <h2>Journal Entries</h2>
       {entries.map((entry, index) => (
         <p key={index}>
-          <Link to={`entry/${index}`}>{entry.category} - {entry.content}</Link>
+          <Link to={`entry/${index}`}>{entry.category.name} / {entry.content}</Link>
         </p>
       ))}
     </>

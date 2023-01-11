@@ -1,21 +1,29 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Home from './Home'
 import CategorySelection from './CategorySelection'
 import NewEntry from './NewEntry'
 import NavBar from './NavBar'
-import { BrowserRouter, Routes, Route, useParams, useNavigate } from 'react-router-dom'
+import { Routes, Route, useParams, useNavigate } from 'react-router-dom'
 import ShowEntry from './ShowEntry'
 
 const seedEntries = [
   {category: 'Food', content: 'Pizza'},
-  {category: 'Book', content: 'All the light we cannot see'},
-  {category: 'Work', content: 'React BrowserRouter'}
+  {category: 'Coding', content: 'React is awesome!'},
+  {category: 'Work', content: 'Another day, another dollar'}
 ]
 
 const App = () => {
 
-  const [entries, setEntries] = useState(seedEntries)
+  const [entries, setEntries] = useState([])
   const nav = useNavigate()
+
+  // fetching seed entries from database
+  useEffect(async () => {
+    const res = await fetch('http://localhost:4001/entries/')
+    const data = await res.json()
+    setEntries(data)
+  }, []) // [] is the 'dependencies list', empty means only on mount
+
   // HOC
   const ShowEntryWrapper = () => {
     const {id} = useParams()
@@ -36,7 +44,7 @@ const App = () => {
     nav(`/entry/${id}`)
 }
 
-  return (
+  return ( // needs parentheses because it is multi-lined 
     <>
       <NavBar />
       <Routes> 
