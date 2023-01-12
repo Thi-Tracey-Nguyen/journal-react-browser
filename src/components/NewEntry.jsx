@@ -6,22 +6,11 @@ const NewEntry = ({ addEntry }) => {
   const { category } = useParams()
   const [entry, setEntry] = useState('')
 
-  const handleChange = ({target}) => setEntry(target.value)
+  const handleChange = ({ target }) => setEntry(target.value)
 
   function handleSubmit(event) {
     event.preventDefault()
     addEntry(category, entry)
-    // alert('Entry added successfully')
-    // const id = entries.length
-
-    // // Add a new entry
-    // const newEntry = {
-    //   category: category,
-    //   content: entry
-    // }
-    // setEntries([...entries, newEntry])
-    // setEntry('')
-    // nav(`/entry/${id}`)
   }
 
   return (

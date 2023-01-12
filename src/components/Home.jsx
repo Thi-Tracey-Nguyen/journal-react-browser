@@ -2,12 +2,13 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 const Home = ({ entries }) => {
+  console.log(entries)
   return (
     <>
       <h2>Journal Entries</h2>
       {entries.map((entry, index) => (
         <p key={index}>
-          <Link to={`entry/${index}`}>{entry.category.name} / {entry.content}</Link>
+          <Link to={`entry/${index}`}>{entry.category.name} - {entry.content}</Link>
         </p>
       ))}
     </>
