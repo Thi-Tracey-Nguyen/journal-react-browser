@@ -17,7 +17,7 @@ const App = () => {
   // fetch categories from the api
   useEffect(() => {
     async function fetchCategories() {
-      const res = await fetch('http://localhost:4001/categories')
+      const res = await fetch('http://mongodb-intro-production.up.railway.app/categories')
       const data = await res.json()
       setCategories(data)
     }
@@ -27,7 +27,7 @@ const App = () => {
   // fetching seed entries from database
   useEffect(() => {
     async function fetchEntries() {
-      const res = await fetch('http://localhost:4001/entries/')
+      const res = await fetch('http://mongodb-intro-production.up.railway.app/entries/')
       const data = await res.json()
       setEntries(data)
     }
@@ -54,7 +54,7 @@ const App = () => {
     }
 
     // Post the new entry to the API
-    const returnedEntry = await fetch('http://localhost:4001/entries/', {
+    const returnedEntry = await fetch('http://mongodb-intro-production.up.railway.app/entries/', {
       method: 'POST',
       headers: {
         'Accept': 'application/json',
